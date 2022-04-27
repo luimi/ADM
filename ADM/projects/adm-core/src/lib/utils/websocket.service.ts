@@ -10,7 +10,7 @@ export class WebsocketService {
     isConnecting = false;
     isSecure = false;
     status: 'Not Connected' | 'Connected' | 'Connecting' = 'Not Connected';
-    verificationTimeout = 5000;
+    verificationTimeout = 60000;
     constructor(private deviceCtrl: DeviceService) { }
 
     verify(url: string) {
@@ -27,7 +27,7 @@ export class WebsocketService {
             };
             ws.onmessage = (msg) => {
                 try {
-                    const device: Device = JSON.parse(msg.data);
+                    const device: Device = Object.assign(new Device, JSON.parse(msg.data));
                     this.deviceCtrl.addDevice(device);
                     ws.close();
                     res(device);
