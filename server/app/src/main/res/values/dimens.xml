@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_title">35sp</dimen>
+    <dimen name="font_title_content">25sp</dimen>
+    <dimen name="font_content">15sp</dimen>
+    <dimen name="main_padding">0dp</dimen>
+    <dimen name="bg_content_br_bl">20dp</dimen>
+    <dimen name="bg_content_br_br">20dp</dimen>
+    <dimen name="bg_content_br_tr">0dp</dimen>
+</resources>

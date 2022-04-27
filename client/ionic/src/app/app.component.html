@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <adm></adm>
+        <ion-item>
+          <ion-input #ip placeholder="192.168.x.x:8887"></ion-input>
+        </ion-item>
+        <ion-button color="primary" expand="block" (click)="connect(ip.value)"><span [hidden]="isVerifying">Connect</span><ion-spinner [hidden]="!isVerifying"></ion-spinner></ion-button>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let device of deviceCtrl.devices">
+            <ion-item routerDirection="root" [routerLink]="['/device',device.getUID()]" detail="false" routerLinkActive="selected">
+              <ion-label>
+                <h2>{{device.manufacter}} - {{device.model}}</h2>
+                <p>{{device.ip}}{{device.port?':':''}}{{device.port?device.port:''}}</p>
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+

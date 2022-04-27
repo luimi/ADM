@@ -1,0 +1,40 @@
+<adm></adm>
+<div style="margin-top: 15px;">
+  <input placeholder="Host o IP Address" [(ngModel)]="host" />
+  <button (click)="verify()">Verificar</button>
+</div>
+<div>
+  IsSecure <input type="checkbox" [(ngModel)]="websocketCtrl.isSecure" /> -
+  {{ websocketCtrl.status }}
+</div>
+<div>
+  <select #selectedDevice>
+    <option *ngFor="let device of deviceCtrl?.devices" [value]="device.getUID()">
+      {{ device.manufacter }} - {{ device.model }}
+    </option>
+  </select>
+  <button (click)="connect(selectedDevice.value)">Connect</button>
+  <button (click)="remove(selectedDevice.value)">Remove</button>
+  <button [disabled]="!websocketCtrl.isConnected" (click)="websocketCtrl.send({ type: 'stop' })">StopWS</button>
+  <h3>Operative System</h3>
+  <button [disabled]="!websocketCtrl.isConnected" (click)="websocketCtrl.send({ type: 'shutdown' })">
+    Shutdown
+  </button>
+  <button [disabled]="!websocketCtrl.isConnected" (click)="websocketCtrl.send({ type: 'reboot' })">
+    reboot
+  </button>
+  <h3>Display DPI</h3>
+  <select #selectedDPI>
+    <option *ngFor="let dpi of dpis" > {{dpi}}dpi</option>
+  </select>
+  <button [disabled]="!websocketCtrl.isConnected" (click)="websocketCtrl.send({ type: 'setdpi', value1: selectedDPI.value })">
+    Set DPI
+  </button>
+  <h3>Bluetooth</h3>
+  <button [disabled]="!websocketCtrl.isConnected" (click)="websocketCtrl.send({ type: 'stopbluetooth'})">
+    Stop
+  </button>
+  <button [disabled]="!websocketCtrl.isConnected" (click)="websocketCtrl.send({ type: 'startbluetooth'})">
+    Start
+  </button>
+</div>

@@ -1,0 +1,18 @@
+.logo {
+    text-align: center;
+  }
+  
+  .logo h1 {
+    margin: 20px 0 0 0;
+    color: #24695c;
+  }
+  .logo span {
+    color: #999;
+  }
+  .logo hr {
+    background-color: #e6edef;
+    border: none;
+    height: 1px;
+    margin: 20px 0 0 0;
+  }
+  

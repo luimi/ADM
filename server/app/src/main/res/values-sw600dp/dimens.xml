@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_padding">35dp</dimen>
+    <dimen name="bg_content_br_bl">20dp</dimen>
+    <dimen name="bg_content_br_br">20dp</dimen>
+    <dimen name="bg_content_br_tr">0dp</dimen>
+</resources>

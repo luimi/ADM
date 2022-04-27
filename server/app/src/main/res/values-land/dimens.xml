@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bg_content_br_bl">0dp</dimen>
+    <dimen name="bg_content_br_br">20dp</dimen>
+    <dimen name="bg_content_br_tr">20dp</dimen>
+</resources>
