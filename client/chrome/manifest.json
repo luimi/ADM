@@ -1,0 +1,21 @@
+{
+    "name": "ADM",
+    "version": "1.0.0",
+    "homepage_url": "https://lui2mi.wordpress.com",
+    "description": "Android Device Manager",
+    "icons": {
+     "16": "favicon.ico",
+     "32": "favicon.ico"
+    },
+    "manifest_version": 2,
+    "browser_action": {
+     "default_icon": {
+      "16": "favicon.ico",
+      "32": "favicon.ico"
+     },
+     "default_title": "ADM",
+     "default_popup": "index.html"
+    },
+    "permissions": ["storage"],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+   }
