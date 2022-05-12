@@ -13,10 +13,13 @@ export class AppComponent {
   host: string = '';
   dpis = DPIs;
   timeouts = TimeOuts;
+  device: Device = new Device();
   constructor(
     public websocketCtrl: WebsocketService,
     public deviceCtrl: DeviceService
-  ) { }
+  ) { 
+    this.device = deviceCtrl.getDevice(this.deviceCtrl.devices[0].id);
+  }
   async verify() {
     try {
       let device = await this.websocketCtrl.verify(this.host);
