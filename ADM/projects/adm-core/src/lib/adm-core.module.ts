@@ -7,6 +7,7 @@ import { DevicesComponent } from './components/devices/devices.component';
 import { DisplayComponent } from './components/display/display.component';
 import { InformationComponent } from './components/information/information.component';
 import { OperativeSystemComponent } from './components/os/os.component';
+import { WifiComponent } from './components/wifi/wifi.component';
 
 
 
@@ -17,7 +18,8 @@ import { OperativeSystemComponent } from './components/os/os.component';
     OperativeSystemComponent,
     CheckComponent,
     DevicesComponent,
-    DisplayComponent
+    DisplayComponent,
+    WifiComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { OperativeSystemComponent } from './components/os/os.component';
     OperativeSystemComponent,
     CheckComponent,
     DevicesComponent,
-    DisplayComponent
+    DisplayComponent,
+    WifiComponent
   ]
 })
 export class AdmCoreModule { }
