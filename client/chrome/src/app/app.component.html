@@ -85,6 +85,10 @@
                                                               
 
 -->
+  <div *ngIf="device">
+    <device-information [device]="device"></device-information>
+  </div>
+  
   <div class="card m-3">
     <div class="card-body">
       <h5 class="card-title">Information</h5>

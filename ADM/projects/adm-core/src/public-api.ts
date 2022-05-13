@@ -9,3 +9,4 @@ export * from './lib/utils/websocket.service';
 export * from './lib/utils/device.service';
 export * from './lib/utils/constants';
 export * from './lib/models/device.model';
+export * from './lib/components/information/information.component';

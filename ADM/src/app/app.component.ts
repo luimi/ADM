@@ -42,4 +42,20 @@ export class AppComponent {
   ngOnDestroy() {
     this.websocketCtrl.disconnect();
   }
+
+  onCheckSuccess(device: Device){
+    console.log("onSuccess",device);
+  }
+  onCheckFail(error: any){
+    console.log("onFail",error);
+  }
+  onSelectedDevice(device: Device){
+    console.log("onSelected", device);
+  }
+  send(event: any){
+    console.log(event);
+  }
+  isConnected(){
+    return this.websocketCtrl.isConnected;
+  }
 }

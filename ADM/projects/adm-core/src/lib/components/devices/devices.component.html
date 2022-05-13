@@ -1,0 +1,6 @@
+<div class="list">
+    <div class="list-item" *ngFor="let device of this.deviceCtrl.devices" (click)="select(device)">
+        <h3>{{device.manufacter}} - {{device.model}}</h3>
+        <p>{{device.ip}}{{device.port?':':''}}{{device.port?device.port:''}}</p>
+    </div>
+</div>

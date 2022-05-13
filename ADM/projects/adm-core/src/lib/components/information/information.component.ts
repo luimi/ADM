@@ -1,15 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Device } from '../../models/device.model';
+import { DeviceComponent } from '../device/device.component';
 
 @Component({
     selector: 'device-information',
     templateUrl: './information.component.html',
     styleUrls: ['./information.component.scss']
 })
-export class InformationComponent implements OnInit {
-    @Input() device: Device = new Device()
+export class InformationComponent extends DeviceComponent implements OnInit {
     information: any;
-    constructor() { }
+    constructor() { 
+        super()
+    }
 
     ngOnInit(): void {
         let info = [];
