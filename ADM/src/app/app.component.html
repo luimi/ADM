@@ -3,3 +3,4 @@
 <device-list (onSelect)="onSelectedDevice($event)"></device-list>
 <device-information [device]="device"></device-information>
 <device-os (eventSend)="send($event)" [isConnected]="isConnected()"></device-os>
+<device-display [device]="device" (eventSend)="send($event)" [isConnected]="isConnected()"></device-display>
