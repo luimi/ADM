@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-title">Display</div>
     <div class="card-body">
-        <div class="card-title">DPI</div>
+        <div class="card-subtitle">DPI</div>
         <select [(ngModel)]="this.device.displayDPI" [disabled]="!isConnected">
             <option *ngFor="let dpi of DPIs" [value]="dpi">{{dpi}}dpi</option>
         </select>
@@ -9,7 +9,7 @@
         (click)="setDPI()">Apply</button>
         <button [disabled]="!isConnected"
         (click)="resetDPI()">Reset</button>
-        <div class="card-title">Sleep time</div>
+        <div class="card-subtitle">Sleep time</div>
         <select [(ngModel)]="this.device.screenTimeOut" [disabled]="!isConnected">
             <option *ngFor="let time of TimeOuts" [value]="time.value">{{time.name}}</option>
         </select> 

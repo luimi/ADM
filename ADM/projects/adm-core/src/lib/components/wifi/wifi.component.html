@@ -1,14 +1,14 @@
 <div class="card">
     <div class="card-title">Wifi</div>
     <div class="card-body">
-        <div class="card-title">ADB</div>
+        <div class="card-subtitle">ADB</div>
         <div class="segment">
             <button [disabled]="!isConnected" [ngClass]="{'active':this.device.isADBWifi}"
                 (click)="startADB()">Active</button>
             <button [disabled]="!isConnected" [ngClass]="{'active':!this.device.isADBWifi}"
                 (click)="stopADB()">Inactive</button>
         </div>
-        <div class="card-title">Networks</div>
+        <div class="card-subtitle">Networks</div>
         <input type="text" placeholder="SSID" #WifiSSID [disabled]="!isConnected" >
         <input type="text" placeholder="Password" #WifiPassword [disabled]="!isConnected" >
         <button [disabled]="!isConnected" (click)="saveNetwork(WifiSSID.value,WifiPassword.value)">Add Network</button>
