@@ -7,12 +7,14 @@ import { DeviceComponent } from '../device/device.component';
     styleUrls: ['./apps.component.scss']
 })
 export class AppsComponent extends DeviceComponent implements OnInit {
-
+    filter: any[] = []
+    filterInput = "";
     constructor() { 
         super();
     }
 
     ngOnInit(): void {
+        this.filter = this.device.installedApps;
     }
     launch(packageName: String){
         this.send({type:'startapp', value1: packageName})
@@ -22,5 +24,11 @@ export class AppsComponent extends DeviceComponent implements OnInit {
     }
     remove(packageName: String){
         this.send({type:'removeapp', value1: packageName})
+    }
+    search(input: any){
+        this.filter = [];
+        this.device.installedApps.forEach((app:any)=> {
+            if(app.name.toLowerCase().includes(input.toLowerCase()) || app.packageName.toLowerCase().includes(input.toLowerCase())) this.filter.push(app);
+        })
     }
 }

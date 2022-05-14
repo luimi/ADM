@@ -1,8 +1,9 @@
 <div class="card">
     <div class="card-title">Apps</div>
     <div class="card-body">
+        <input type="text" [(ngModel)]="filterInput" placeholder="Search..." (ngModelChange)="search($event)">
         <div class="list">
-            <div class="list-item" *ngFor="let app of device.installedApps">
+            <div class="list-item" *ngFor="let app of filter">
                 <h3>{{app.name}}</h3>
                 <p>{{app.packageName}}</p>
                 <small>Version {{app.version}}</small>
