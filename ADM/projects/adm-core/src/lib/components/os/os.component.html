@@ -1,7 +1,18 @@
 <div class="card">
     <div class="card-title">Operative System</div>
     <div class="card-body">
-        <button (click)="shutdown()" [disabled]="!this.isConnected">Shutdown</button>
-        <button (click)="reboot()" [disabled]="!this.isConnected">Reboot</button>
+        <div class="row">
+            <button class="col" (click)="shutdown()" [disabled]="!this.isConnected">Shutdown</button>
+            <button class="col" (click)="reboot()" [disabled]="!this.isConnected">Reboot</button>
+        </div>
+        <div class="card-subtitle">Bluetooth</div>
+        <div class="segment">
+            <button  (click)="startBluetooth()" [disabled]="!this.isConnected" [ngClass]="{'active':this.device.isBluetooth}">Active</button>
+            <button  (click)="stopBluetooth()" [disabled]="!this.isConnected" [ngClass]="{'active':!this.device.isBluetooth}">Inactive</button>
+        </div>
+        <div class="card-subtitle">Authorization Key</div>
+        <textarea placeholder="adbkey.pub" #adbkey [disabled]="!this.isConnected"></textarea>
+        <button [disabled]="!this.isConnected"
+              (click)="setadbkey(adbkey.value)">Set Key</button>
     </div>
 </div>
