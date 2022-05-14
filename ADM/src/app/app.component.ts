@@ -18,18 +18,13 @@ export class AppComponent {
     public websocketCtrl: WebsocketService,
     public deviceCtrl: DeviceService
   ) { 
-    this.device = deviceCtrl.devices[0];
+    //this.device = deviceCtrl.devices[0];
   }
   connect(device: Device) {
     this.websocketCtrl.connect(device).subscribe((data) => {
       console.log('subscribe', data);
       this.device = data;
     });
-  }
-  remove(id: string) {
-    this.websocketCtrl.disconnect();
-    let device: Device = this.deviceCtrl.getDevice(id)
-    this.deviceCtrl.removeDevice(device);
   }
   ngOnDestroy() {
     this.websocketCtrl.disconnect();
@@ -48,6 +43,7 @@ export class AppComponent {
   }
   send(event: any){
     console.log(event);
+    this.websocketCtrl.send(event);
   }
   isConnected(){
     return this.websocketCtrl.isConnected;
