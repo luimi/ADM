@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-title">Apps</div>
+    <div class="card-body">
+        <div class="list">
+            <div class="list-item" *ngFor="let app of device.installedApps">
+                <h3>{{app.name}}</h3>
+                <p>{{app.packageName}}</p>
+                <small>Version {{app.version}}</small>
+                <div class="row">
+                    <button class="col" (click)="launch(app.packageName)" [disabled]="!isConnected">Launch</button>
+                    <button class="col secondary" (click)="clear(app.packageName)" [disabled]="!isConnected">Clear</button>
+                    <button class="col danger" (click)="remove(app.packageName)" [disabled]="!isConnected">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -152,13 +152,10 @@ textarea {
         text-overflow: ellipsis;
         align-self: center;
     }
-
-    .row {
-        display: flex;
-
-        p,
-        h3 {
-            flex: auto;
-        }
+}
+.row {
+    display: flex;
+    .col {
+        flex: auto;
     }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AdmCoreComponent } from './adm-core.component';
+import { AppsComponent } from './components/apps/apps.component';
 import { CheckComponent } from './components/check/check.component';
 import { DevicesComponent } from './components/devices/devices.component';
 import { DisplayComponent } from './components/display/display.component';
@@ -19,7 +20,8 @@ import { WifiComponent } from './components/wifi/wifi.component';
     CheckComponent,
     DevicesComponent,
     DisplayComponent,
-    WifiComponent
+    WifiComponent,
+    AppsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { WifiComponent } from './components/wifi/wifi.component';
     CheckComponent,
     DevicesComponent,
     DisplayComponent,
-    WifiComponent
+    WifiComponent,
+    AppsComponent
   ]
 })
 export class AdmCoreModule { }
