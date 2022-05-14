@@ -10,11 +10,8 @@ import { InformationComponent } from './components/information/information.compo
 import { OperativeSystemComponent } from './components/os/os.component';
 import { WifiComponent } from './components/wifi/wifi.component';
 
-
-
-@NgModule({
-  declarations: [
-    AdmCoreComponent,
+const components = [
+  AdmCoreComponent,
     InformationComponent,
     OperativeSystemComponent,
     CheckComponent,
@@ -22,20 +19,14 @@ import { WifiComponent } from './components/wifi/wifi.component';
     DisplayComponent,
     WifiComponent,
     AppsComponent
-  ],
+];
+
+@NgModule({
+  declarations: components,
   imports: [
     BrowserModule,
     FormsModule
   ],
-  exports: [
-    AdmCoreComponent,
-    InformationComponent,
-    OperativeSystemComponent,
-    CheckComponent,
-    DevicesComponent,
-    DisplayComponent,
-    WifiComponent,
-    AppsComponent
-  ]
+  exports: components
 })
 export class AdmCoreModule { }
