@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { WebsocketService } from 'adm-core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Device } from '../../models/device.model';
 
 @Component({
