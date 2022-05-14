@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DPIs } from '../../utils/constants';
+import { DPIs, TimeOuts } from '../../utils/constants';
 import { DeviceComponent } from '../device/device.component';
 
 @Component({
@@ -8,7 +8,8 @@ import { DeviceComponent } from '../device/device.component';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent extends DeviceComponent implements OnInit {
-  DPIs = DPIs
+  DPIs = DPIs;
+  TimeOuts = TimeOuts;
   constructor() { 
       super()
   }
@@ -20,5 +21,8 @@ export class DisplayComponent extends DeviceComponent implements OnInit {
   }
   resetDPI(){
     this.send({type:'resetdpi'});
+  }
+  setTimeout(){
+    this.send({type:'setscreentimeout', value1:this.device.screenTimeOut})
   }
 }

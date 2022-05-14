@@ -13,25 +13,17 @@ export class AppComponent {
   host: string = '';
   dpis = DPIs;
   timeouts = TimeOuts;
-  device: Device = new Device();
+  device!: Device;
   constructor(
     public websocketCtrl: WebsocketService,
     public deviceCtrl: DeviceService
   ) { 
-    this.device = deviceCtrl.getDevice(this.deviceCtrl.devices[0].id);
+    this.device = deviceCtrl.devices[0];
   }
-  async verify() {
-    try {
-      let device = await this.websocketCtrl.verify(this.host);
-      console.log(device);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  connect(id: string) {
-    let device: Device = this.deviceCtrl.getDevice(id)
+  connect(device: Device) {
     this.websocketCtrl.connect(device).subscribe((data) => {
       console.log('subscribe', data);
+      this.device = data;
     });
   }
   remove(id: string) {
@@ -45,12 +37,14 @@ export class AppComponent {
 
   onCheckSuccess(device: Device){
     console.log("onSuccess",device);
+    this.connect(device);
   }
   onCheckFail(error: any){
     console.log("onFail",error);
   }
   onSelectedDevice(device: Device){
     console.log("onSelected", device);
+    this.connect(device);
   }
   send(event: any){
     console.log(event);
@@ -58,4 +52,5 @@ export class AppComponent {
   isConnected(){
     return this.websocketCtrl.isConnected;
   }
+
 }
