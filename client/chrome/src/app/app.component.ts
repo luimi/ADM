@@ -14,41 +14,25 @@ export class AppComponent {
   DPIList = DPIs;
   TimeSleepList = TimeOuts;
   constructor(public websocketCtrl: WebsocketService, public deviceCtrl: DeviceService) { }
-  async connect(ip: string) {
-    console.log("connect to:",ip)
-    if (this.isVerifying) {
-      return
-    }
-    this.isVerifying = true;
-    try {
-      let device: any = await this.websocketCtrl.verify(ip);
-      this.device = device;
-      console.log("connect","success");
-      //this.router.navigateByUrl('/device/'+device.ip)
-    } catch (e) {
-      console.log("connect","fail");
-      //Error
-    }
-    this.isVerifying = false;
+
+  onCheckSuccess(device: Device){
+    console.log("onSuccess",device);
+    this.connect(device);
   }
-  selectDevice(device: Device){
+  onCheckFail(error: any){
+    console.log("onFail",error);
+  }
+  onSelectedDevice(device: Device){
+    console.log("onSelected", device);
+    this.connect(device);
+  }
+  connect(device: Device){
     this.device = device;
     this.websocketCtrl.connect(this.device).subscribe((data) => {
       if(data.type === 'device'){
         this.device = data;
       }
     });
-    this.getInformation();
-  }
-  getInformation(){
-    let info = [];
-    info.push({title:'IP',description:this.device.ip});
-    info.push({title:'Manufacter',description:this.device.manufacter});
-    info.push({title:'Model',description:this.device.model});
-    info.push({title:'Version',description:this.device.version});
-    info.push({title:'SDK',description:this.device.versionSDK});
-    info.push({title:'Processor',description:this.device.processor});
-    this.information = info;
   }
   back(){
     this.websocketCtrl.disconnect();
@@ -57,7 +41,18 @@ export class AppComponent {
   send(event: any){
     this.websocketCtrl.send(event)
   }
+  isConnected(){
+    return this.websocketCtrl.isConnected;
+  }
   disableEvent(){
     return !this.websocketCtrl.isConnected;
+  }
+  remove(){
+    this.websocketCtrl.disconnect();
+    this.deviceCtrl.removeDevice(this.device);
+    this.device = undefined;
+  }
+  reconnect(){
+    this.connect(this.device);
   }
 }
